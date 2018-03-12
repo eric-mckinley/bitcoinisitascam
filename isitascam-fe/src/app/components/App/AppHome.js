@@ -62,11 +62,9 @@ export default class AppHome extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Mounting Home Page');
     }
 
     componentWillUnmount() {
-        console.log('Unmounting Home Page');
     }
 
     render() {
@@ -77,7 +75,7 @@ export default class AppHome extends React.Component {
                     <span style={htext}>Is it a Scam</span>
                 </div>
                 <div style={bstyle}>
-                    <ContentData pageName="story" blockName="section2"/>
+                    <ContentData pageName="home" blockName="section1"/>
                 </div>
                 <div style={fstyle}>
                     <span style={ftext}>Crypto Answers</span>

@@ -37,11 +37,9 @@ var CryptoServiceStore = assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function (action) {
-            console.log("ZZz " + action.type);
     switch (action.type) {
 
         case CryptoServiceConstants.SHOW_STATUS:
-                       console.log('TTT ' + action.type);
              updateState({
                 details: action.details
             });

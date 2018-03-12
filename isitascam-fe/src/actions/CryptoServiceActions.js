@@ -17,7 +17,6 @@ var JSONUtil = require('../utils/jsonutil');
 var CryptoServiceActions = {
 
     showStatus: function (json) {
-        console.log('Fire status to AppDispatcher');
         AppDispatcher.dispatch({
             type: CryptoServiceConstants.SHOW_STATUS,
             details: json
@@ -27,17 +26,13 @@ var CryptoServiceActions = {
     fetchStatus: function (cryptoCode) {
         const middlewareHost = process.env.MIDDLEWARE_HOST;
 
-        console.log(middlewareHost + ' Fetching crypto status. ' + cryptoCode);
-
         fetch(middlewareHost + "/crypto-status/" + cryptoCode, {
             mode: 'cors'
         })
             .then((response) => {
-                    console.log('--REMOTE SUCCESS ' + response);
                     return response.json()
             })
             .then((json) => {
-                console.dir(json);
                 CryptoServiceActions.showStatus(json);
             });
 

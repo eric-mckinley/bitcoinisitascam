@@ -6,7 +6,6 @@ var JSONUtil = require('../utils/jsonutil');
 var ContentServiceActions = {
 
     showContent: function (page, section, txt) {
-        console.log('Fire content to AppDispatcher');
         AppDispatcher.dispatch({
             type: ContentServiceConstants.SHOW_CONTENT,
             page: page,
@@ -18,7 +17,6 @@ var ContentServiceActions = {
     fetchContent: function (pageName, blockName) {
         var contentBaseUrl = "https://raw.githubusercontent.com/eric-mckinley/bitcoinisitascam/master/content-data/"
 
-        console.log('LOADING REMOTE DATA ' + pageName + ", " + blockName);
         fetch(contentBaseUrl + pageName + "/" + blockName + ".txt", {
             mode: 'cors'
         })
@@ -26,7 +24,6 @@ var ContentServiceActions = {
                     return response.text()
             })
             .then((text) => {
-                console.log("remote:  " + text);
                 ContentServiceActions.showContent(pageName, blockName, text);
             });
 

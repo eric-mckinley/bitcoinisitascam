@@ -8,6 +8,7 @@ import Avatar from 'material-ui/Avatar';
 import HeaderIcon from 'react-icons/lib/fa/github';
 import RaisedButton from 'material-ui/RaisedButton';
 import {blue300, blue200, indigo900} from 'material-ui/styles/colors';
+import ContentData from './ContentData'
 
 const styles = {
   chip: {
@@ -74,11 +75,9 @@ export default class AppInfoPage extends React.Component {
     }
 
     componentDidMount () {
-        console.log('Mounting Info Page');
     }
 
     componentWillUnmount () {
-        console.log('Unmounting Info Page');
     }
 
     render() {
@@ -106,36 +105,48 @@ export default class AppInfoPage extends React.Component {
                         </Avatar>
                         Backend
                     </Chip>
+                    <ContentData pageName="info" blockName="be"/>
+
                     <Chip backgroundColor={blue300} style={styles.chip}>
                         <Avatar size={32} color={blue200} backgroundColor={indigo900}>
                         FE
                         </Avatar>
                         Frontend
                     </Chip>
+                    <ContentData pageName="info" blockName="fe"/>
+
                     <Chip backgroundColor={blue300} style={styles.chip}>
                         <Avatar size={32} color={blue200} backgroundColor={indigo900}>
                         SU
                         </Avatar>
                         Swagger UI
                     </Chip>
+                    <ContentData pageName="info" blockName="api"/>
+
                     <Chip backgroundColor={blue300} style={styles.chip}>
                         <Avatar size={32} color={blue200} backgroundColor={indigo900}>
                         WS
                         </Avatar>
                         Web Server
                     </Chip>
+                    <ContentData pageName="info" blockName="proxy"/>
+
                     <Chip backgroundColor={blue300} style={styles.chip}>
                         <Avatar size={32} color={blue200} backgroundColor={indigo900}>
                         DI
                         </Avatar>
                         Deployment Infrastructure
                     </Chip>
+                    <ContentData pageName="info" blockName="kub"/>
+
                     <Chip backgroundColor={blue300} style={styles.chip}>
                         <Avatar size={32} color={blue200} backgroundColor={indigo900}>
                         DI
                         </Avatar>
                         Local Development
                     </Chip>
+                    <ContentData pageName="info" blockName="docker"/>
+
                     </div>
                     <div style={fstyle}>
                         <span style={ftext}>Crypto Answers</span>
