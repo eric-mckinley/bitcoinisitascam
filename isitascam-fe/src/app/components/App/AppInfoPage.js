@@ -94,72 +94,49 @@ export default class AppInfoPage extends React.Component {
                      <RaisedButton
                               href="https://github.com/eric-mckinley/bitcoinisitascam"
                               target="_blank"
-                              label="Github Project"
+                              label="View Github Project"
                               secondary={true}
                               style={{margin:5}}
                               icon={<HeaderIcon />}
                             />
-
-                            The entire bitcoinisitascam code base is free to the community.
-                            Details of the different parts are listed below.
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue300} backgroundColor={indigo900}>
-                            BE
-                            </Avatar>
-                            Backend
-                        </Chip>An ExpressJs server supporting the isitascam api and providing a javascript implementaion
-                        of the Algorithm
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue200} backgroundColor={indigo900}>
-                            FE
-                            </Avatar>
-                            Frontend
-                        </Chip>
-                        ReactJS App running on node js server. Uses following technologies: react-router, react-flux dispatcher,
-                        materia-ui components.
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue200} backgroundColor={indigo900}>
-                            SU
-                            </Avatar>
-                            Swagger UI
-                        </Chip>
-                        Standalone instance of SwaggerUI running on nginx web server. Used to visualize and document the isitascam api
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue200} backgroundColor={indigo900}>
-                            WS
-                            </Avatar>
-                            Web Server
-                        </Chip>
-                        Nginx web server proxying the front end react ui, the swagger ui server and the backend api server as
-                        well as providing static hosting for the api swagger contract
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue200} backgroundColor={indigo900}>
-                            DI
-                            </Avatar>
-                            Deployment Infrastructure
-                        </Chip>
-                        Each above service built as containerized isolated docker images and deployed as single node kubernetes cluster on Google Cloud Projet
-                        </p>
-                        <p>
-                        <Chip backgroundColor={blue300} style={styles.chip}>
-                            <Avatar size={32} color={blue200} backgroundColor={indigo900}>
-                            DI
-                            </Avatar>
-                            Local Development
-                        </Chip>
-                        Docker-compose deployment with local runtime editing of the front end container code using mounted volumes
-                        </p>
-                        </div>
+                    </p>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue300} backgroundColor={indigo900}>
+                        BE
+                        </Avatar>
+                        Backend
+                    </Chip>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue200} backgroundColor={indigo900}>
+                        FE
+                        </Avatar>
+                        Frontend
+                    </Chip>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue200} backgroundColor={indigo900}>
+                        SU
+                        </Avatar>
+                        Swagger UI
+                    </Chip>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue200} backgroundColor={indigo900}>
+                        WS
+                        </Avatar>
+                        Web Server
+                    </Chip>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue200} backgroundColor={indigo900}>
+                        DI
+                        </Avatar>
+                        Deployment Infrastructure
+                    </Chip>
+                    <Chip backgroundColor={blue300} style={styles.chip}>
+                        <Avatar size={32} color={blue200} backgroundColor={indigo900}>
+                        DI
+                        </Avatar>
+                        Local Development
+                    </Chip>
+                    </div>
                     <div style={fstyle}>
                         <span style={ftext}>Crypto Answers</span>
                     </div>

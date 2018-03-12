@@ -1,0 +1,3 @@
+<p>
+    Standalone instance of SwaggerUI running on nginx web server. Used to visualize and document the isitascam api
+</p>

@@ -35,6 +35,8 @@ export default class ContentData extends React.Component {
       }
 
       _onContentReceived () {
-        this.setState({htmlContent: ContentServiceStore.getState().content});
+        if(ContentServiceStore.getState().content[this.props.pageName][this.props.blockName]) {
+            this.setState({htmlContent: ContentServiceStore.getState().content[this.props.pageName][this.props.blockName].html});
+        }
       }
 }

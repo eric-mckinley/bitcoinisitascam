@@ -1,0 +1,3 @@
+<p>
+    Each above service built as containerized isolated docker images and deployed as single node kubernetes cluster on Google Cloud Projet
+</p>

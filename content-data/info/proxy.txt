@@ -1,0 +1,4 @@
+<p>
+    Nginx web server proxying the front end react ui, the swagger ui server and the backend api server as
+    well as providing static hosting for the api swagger contract
+</p>

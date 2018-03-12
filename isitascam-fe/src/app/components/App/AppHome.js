@@ -5,6 +5,7 @@ import HeaderIcon from 'react-icons/lib/fa/bitcoin';
 
 import {withStyles} from 'material-ui/styles';
 import {Grid, Row, Col} from 'react-bootstrap/lib';
+import ContentData from './ContentData'
 
 
 const iconstyle = {
@@ -76,26 +77,7 @@ export default class AppHome extends React.Component {
                     <span style={htext}>Is it a Scam</span>
                 </div>
                 <div style={bstyle}>
-                    <p>
-                    Welcome to bitcoinisitascam
-                    </p>
-                    <p>
-                    As the popularity and adoption of crypto currencies increase so do the questions. And no matter
-                    whether you are a seasoned long term investor or a beginner wondering whether to dip your toe in the water
-                    the biggest question is always: <strong>Is it a scam?</strong>
-                    </p>
-                    <p>
-                    Basing our work off a forgotten thesis (see our origin story) a team of experts set about developing an algorithm
-                    to answer the question.
-                    </p>
-                    <p>
-                    We developed an api so the community can use the algorithm. Just as this website does for bitcoin,
-                    everyone can get access to the latest version of the algorithm and provide definitive answers in
-                    their own software products to the question:
-                    </p>
-                    <p>
-                    Is it a scam?
-                    </p>
+                    <ContentData pageName="story" blockName="section2"/>
                 </div>
                 <div style={fstyle}>
                     <span style={ftext}>Crypto Answers</span>

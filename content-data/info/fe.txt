@@ -1,0 +1,4 @@
+<p>
+    ReactJS App running on node js server. Uses following technologies: react-router, react-flux dispatcher,
+    materia-ui components, custom git based cms.
+</p>

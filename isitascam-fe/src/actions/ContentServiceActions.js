@@ -5,18 +5,21 @@ var JSONUtil = require('../utils/jsonutil');
 
 var ContentServiceActions = {
 
-    showContent: function (txt) {
+    showContent: function (page, section, txt) {
         console.log('Fire content to AppDispatcher');
         AppDispatcher.dispatch({
             type: ContentServiceConstants.SHOW_CONTENT,
+            page: page,
+            section: section,
             content: txt
         });
     },
 
     fetchContent: function (pageName, blockName) {
-        const middlewareHost = process.env.MIDDLEWARE_HOST;
+        var contentBaseUrl = "https://raw.githubusercontent.com/eric-mckinley/bitcoinisitascam/master/content-data/"
+
         console.log('LOADING REMOTE DATA ' + pageName + ", " + blockName);
-        fetch("https://raw.githubusercontent.com/eric-mckinley/unit-test-name-checker/master/ignore.txt", {
+        fetch(contentBaseUrl + pageName + "/" + blockName + ".txt", {
             mode: 'cors'
         })
             .then((response) => {
@@ -24,7 +27,7 @@ var ContentServiceActions = {
             })
             .then((text) => {
                 console.log("remote:  " + text);
-                ContentServiceActions.showContent(text);
+                ContentServiceActions.showContent(pageName, blockName, text);
             });
 
     },

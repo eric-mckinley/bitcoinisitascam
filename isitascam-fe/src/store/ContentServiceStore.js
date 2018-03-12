@@ -9,7 +9,7 @@ var _ = require('underscore');
 var CHANGE_EVENT = 'change';
 
 var _state = {
-    details: {}
+    content: {}
 };
 
 
@@ -39,8 +39,24 @@ var ContentServiceStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function (action) {
     switch (action.type) {
         case ContentServiceConstants.SHOW_CONTENT:
+
+            var sectionData = new Object();
+            sectionData['html'] = action.content;
+
+            var pageData = new Object();
+            pageData[action.section] = sectionData;
+
+            var contentData = ContentServiceStore.getState()['content'];
+
+            if(contentData[action.page]) {
+               contentData[action.page][action.section] = sectionData;
+            }
+            else{
+                contentData[action.page] = pageData;
+            }
+
             updateState({
-                content: action.content
+                content: contentData
             });
             ContentServiceStore.emitChange();
             break;

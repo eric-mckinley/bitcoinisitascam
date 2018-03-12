@@ -1,0 +1,3 @@
+<p>
+    Docker-compose deployment with local runtime editing of the front end container code using mounted volumes
+</p>
