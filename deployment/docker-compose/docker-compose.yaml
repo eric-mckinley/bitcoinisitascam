@@ -5,8 +5,8 @@ services:
     image: "bitcoinisitascam/frontend"
     container_name: frontend
     volumes:
-      - "/Users/ericmckinley/Development/Projects/bitcoinisitascam/isitascam-fe/src:/usr/src/app/src"
-      - "/Users/ericmckinley/Development/Projects/bitcoinisitascam/isitascam-fe/public:/usr/src/app/public"
+      - "SET_PROJECT_DIR_PATH/isitascam-fe/src:/usr/src/app/src"
+      - "SET_PROJECT_DIR_PATH/isitascam-fe/public:/usr/src/app/public"
     networks:
       - default
     environment:
