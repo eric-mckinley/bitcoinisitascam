@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: bitcoinisitascam-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bitcoinisitascam
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bitcoinisitascam
+    spec:
+      containers:
+        - name: backend
+          imagePullPolicy: IfNotPresent
+          image: "bitcoinisitascam/be"
+          ports:
+            - name: http
+              containerPort: 3200
+        - name: frontend
+          imagePullPolicy: IfNotPresent
+          image: "bitcoinisitascam/fe"
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+          - name: MIDDLEWARE_HOST
+            value: "http://bitcoinisitascam.com/api/v1"
+          - name: DOCS_URL
+            value: "http://bitcoinisitascam.com/docs/"
+        - name: web
+          imagePullPolicy: IfNotPresent
+          image: "bitcoinisitascam/web"
+          ports:
+            - name: http
+              containerPort: 80
+        - name: apiviewer
+          imagePullPolicy: IfNotPresent
+          image: "swaggerapi/swagger-ui"
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+          - name: API_URL
+            value: "http://bitcoinisitascam.com/api-docs/swagger.yaml"

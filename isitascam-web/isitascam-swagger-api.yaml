@@ -1,0 +1,102 @@
+swagger: "2.0"
+info:
+  description: "Documentation for Crypto IsItAScam Api used by [http://www.bitcoinisitascam.com](http://www.bitcoinisitascam.com)"
+  version: "1.0.0"
+  title: "CryptoIsItAScam Swagger Documentation"
+  termsOfService: "http://www.bitcoinisitascam.com/terms/"
+  contact:
+    email: "eric@mckinleyit.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "bitcoinisitascam.com"
+basePath: "/v1/api"
+tags:
+- name: "status"
+  description: "Discover if a crypto is a scam"
+  externalDocs:
+    description: "Find out more"
+    url: "http://www.bitcoinisitascam.com"
+schemes:
+- "http"
+paths:
+  /crypto-status/{currencyName}:
+    get:
+      tags:
+      - "status"
+      summary: "Discover if a crypto currency is a scam"
+      description: "Returns a currency status summary"
+      operationId: "getCryptoStatus"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "currencyName"
+        in: "path"
+        description: "Name of crypto currency to check"
+        required: true
+        type: "string"
+        enum:
+        - "bitcoin"
+        - "ethereum"
+        - "ripple"
+
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ScamStatus"
+        400:
+          description: "Invalid currency name supplied"
+        404:
+          description: "Currency Status not found"
+
+definitions:
+  ScamStatus:
+    type: "object"
+    properties:
+      scam:
+        type: "boolean"
+        description: "Indicates if the currency is a scam"
+      status:  
+        type: "string"
+        description: "Text explaining if a currency is a scam"
+      changeType:
+        type: "string"
+        description: "Direction change of currency value"
+        enum:
+        - "Up"
+        - "Down"
+      currency:
+        type: "string"
+        description: "Full name of crypto currency checked"
+        enum: 
+        - "Bitcoin"
+        - "Ethereum"
+        - "Ripple"
+      symbol:
+        type: "string"
+        description: "Code of crypto currency checked"
+        enum: 
+        - "BTC"
+        - "ETH"
+        - "XRP"
+      lastPrice:
+        type: "number"
+        format: "double"
+        description: "Previous dollar price of cryto currency"
+      nowPrice:
+        type: "number"
+        format: "double"
+        description: "Current dollar price of cryto currency"
+      diffPrice:  
+        type: "number"
+        format: "double"
+        description: "Difference in current and last price of cryto currency"
+      percentageChange:  
+        type: "number"
+        format: "double"
+        description: "Percentage difference in current and last price of cryto currency"
+
+externalDocs:
+  description: "Visit bitcoinisitascam"
+  url: "http://www.bitcoinisitascam.com"

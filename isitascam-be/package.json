@@ -1,0 +1,15 @@
+{
+  "name": "MiddlewareExpressServer",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Eric McKinley",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.13.3",
+    "node-fetch": "^1.7.0"
+  }
+}

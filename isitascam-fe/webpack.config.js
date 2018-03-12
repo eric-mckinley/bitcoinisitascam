@@ -1,0 +1,74 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
+var path = require('path');
+var webpack = require('webpack')
+
+module.exports = {
+    entry: {
+        app: [
+            'webpack-dev-server/client?http://localhost:3000/',
+            './src/app/components/App/App.js'
+        ]
+    },
+
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        publicPath: '/',
+        filename: '/js/main.js',
+        sourceMapFilename: 'main.js.map'
+    },
+
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.es6'],
+        modulesDirectories: ['src', 'node_modules']
+    },
+
+    devServer: {
+      disableHostCheck: true
+    },
+
+    module: {
+        preloaders: [
+            {
+                test: /\.jsx$|\.es6$|\.js$/,
+                loader: 'source-map',
+                query: {presets: ['react', 'es2015']},
+                exclude: /(node_modules|bower_components)/
+            }
+        ],
+        loaders: [
+            {
+                test: /\.jsx$|\.es6$|\.js$/,
+                loader: 'babel',
+                query: {presets: ['react', 'es2015']},
+                exclude: /(node_modules|bower_components)/
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+            }
+        ]
+    },
+
+    devtool: "eval",
+
+    postcss: function () {
+        return [
+            autoprefixer({browsers: ['last 2 versions']}),
+            precss
+        ];
+    },
+
+    plugins: [
+        new ExtractTextPlugin('/stylesheets/styles.css', {
+            allChunks: true
+        }),
+        new webpack.DefinePlugin({
+          'process.env': {
+            MIDDLEWARE_HOST: JSON.stringify(process.env.MIDDLEWARE_HOST),
+            DOCS_URL: JSON.stringify(process.env.DOCS_URL)
+          },
+        })
+    ]
+};

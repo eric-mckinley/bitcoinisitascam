@@ -1,0 +1,37 @@
+version: '2'
+services:
+  bitcoinisitascam-fe:
+    build: .
+    image: "bitcoinisitascam/frontend"
+    container_name: frontend
+    volumes:
+      - "/Users/ericmckinley/Development/Projects/bitcoinisitascam/isitascam-fe/src:/usr/src/app/src"
+      - "/Users/ericmckinley/Development/Projects/bitcoinisitascam/isitascam-fe/public:/usr/src/app/public"
+    networks:
+      - default
+    environment:
+      - MIDDLEWARE_HOST=http://bitcoinisitascam.com/api/v1
+      - DOCS_URL=http://bitcoinisitascam.com/docs
+
+  bitcoinisitascam-be:
+    image: "bitcoinisitascam/backend"
+    container_name: backend
+    networks:
+      - default
+
+  web:
+    build: .
+    image: "bitcoinisitascam/webserver"
+    container_name: webserver
+    networks:
+      - default
+    ports:
+      - "80:80"
+
+  apiviewer-fe:
+    image: "swaggerapi/swagger-ui"
+    container_name: apiviewer
+    networks:
+      - default
+    environment:
+      - API_URL=http://bitcoinisitascam.com/api-docs/swagger.yaml
