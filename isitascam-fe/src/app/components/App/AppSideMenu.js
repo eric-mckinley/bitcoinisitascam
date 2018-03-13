@@ -26,7 +26,7 @@ export default class AppSideMenu extends React.Component {
                 <MenuItem onClick={this.props.closeit} containerElement={<Link to="/"/>} leftIcon={<HomeIcon />}>Home</MenuItem>
                 <MenuItem onClick={this.props.closeit} containerElement={<Link to="/status"/>} leftIcon={<StatusIcon />}>Bitcoin Status</MenuItem>
                 <MenuItem onClick={this.props.closeit} containerElement={<Link to="/algorithm"/>} leftIcon={<AlgoIcon />}>The Algorithm</MenuItem>
-                <MenuItem onClick={this.props.closeit} containerElement={<Link to="/story"/>} leftIcon={<StoryIcon />}>Orign Story</MenuItem>
+                <MenuItem onClick={this.props.closeit} containerElement={<Link to="/story"/>} leftIcon={<StoryIcon />}>Origin Story</MenuItem>
                 <MenuItem onClick={this.props.closeit} containerElement={<Link to="/info"/>} leftIcon={<InfoIcon />}>Develop</MenuItem>
                 <MenuItem onClick={this.props.closeit} containerElement={<a href={docsUrl}>x</a>} leftIcon={<ApiIcon />}>Api Contract</MenuItem>
             </div>
