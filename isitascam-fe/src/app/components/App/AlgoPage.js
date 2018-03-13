@@ -104,7 +104,7 @@ public class IsItAScam {
 <?php
 function evaluate_is_it_a_scam($currentPrice, $previousPrice)
 {
-    return currentPrice < previousPrice;
+    return $currentPrice < $previousPrice;
 }
 ?>
         `;
