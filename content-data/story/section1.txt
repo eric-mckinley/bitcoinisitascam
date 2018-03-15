@@ -1,4 +1,4 @@
-<p>
+<p style="margin-top:20px;padding-top:20px;">
     The bitcoinisitascam website has its humble origins in the lecture halls and computer labs of Drake University of Moines Iowa.
     It was here during the late 2014 Autumn months that post graduate student Ivor Kweshteon knocked on his lecturers office door
     with his proposed thesis title of 'Are crypto currencies legitimate?'
@@ -29,6 +29,6 @@
     Mixing concrete was never going to be my thing so discovering a lost archive in the rubble of the offices we were rebuilding was a blessing.
 </p>
 <p>
-    By the third week I had begun to lose interest in the boxes of neatly bound printouts. Study titles had begun to blur in my mind and barely grabbed my attention.
+    By the third week I had begun to lose interest in the boxes of neatly bound printouts. Study titles had started to blur in my mind and barely grabbed my attention.
     That was until I pulled out a plastic covered single page thesis:
 </p>
