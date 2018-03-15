@@ -1,8 +1,8 @@
 [
     {
-        name: "Javascript",
-        type: "javascript",
-        codelines: [
+        "name": "Javascript",
+        "type": "javascript",
+        "codelines": [
             "module.exports = {",
             "\tevaluateIsItAScam: function (currentPrice, previousPrice) {",
             "\t\treturn currentPrice <  previousPrice;",
@@ -11,9 +11,9 @@
         ]
     },
     {
-        name: "Java",
-        type: "javascript",
-        codelines: [
+        "name": "Java",
+        "type": "javascript",
+        "codelines": [
             "public class IsItAScam {",
             "\tpublic boolean evaluateIsItAScam(double currentPrice, double previousPrice) {",
             "\t\treturn currentPrice <  previousPrice;",
@@ -22,9 +22,9 @@
         ]
     },
     {
-        name: "Php",
-        type: "php",
-        codelines: [
+        "name": "Php",
+        "type": "php",
+        "codelines": [
             "<?php",
             "function evaluate_is_it_a_scam($currentPrice, $previousPrice)",
             "{",
