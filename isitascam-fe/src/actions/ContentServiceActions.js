@@ -26,7 +26,6 @@ var ContentServiceActions = {
             .then((text) => {
                 ContentServiceActions.showContent(pageName, blockName, text);
             });
-
     },
 
 };

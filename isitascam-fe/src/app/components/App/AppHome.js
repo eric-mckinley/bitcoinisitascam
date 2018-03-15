@@ -72,7 +72,7 @@ export default class AppHome extends React.Component {
             <Paper style={paperstyle} zDepth={3} rounded={false}>
                 <div style={hstyle}>
                     <HeaderIcon style={iconstyle} />
-                    <span style={htext}>Is it a Scam</span>
+                    <ContentData pageName="home" blockName="title" spanTag={true} />
                 </div>
                 <div style={bstyle}>
                     <ContentData pageName="home" blockName="section1"/>

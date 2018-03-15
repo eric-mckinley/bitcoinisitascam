@@ -8,6 +8,11 @@ import TiFlowSwitch from 'react-icons/lib/ti/flow-switch';
 require('codemirror/mode/javascript/javascript');
 var CodeMirror = require('react-codemirror');
 
+var assign = require('object-assign');
+var AlgoServiceActions = require('../../../actions/AlgoServiceActions');
+var AlgoServiceStore = require('../../../store/AlgoServiceStore');
+
+
 import AlgoCode from './AlgoCode';
 
 const iconstyle = {
@@ -66,48 +71,45 @@ const styles = {
   },
 };
 
-
-
 export default class AlgoPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'a'
+            value: 0,
+            algorithms: []
         }
+        this._onCodeReceived = this._onCodeReceived.bind(this);
         this.handleChange = this.handleChange.bind(this)
-
     }
 
+      componentDidMount () {
+        AlgoServiceStore.addChangeListener(this._onCodeReceived);
+        this.sync();
+      }
+
+      componentWillUnmount () {
+         AlgoServiceStore.removeChangeListener(this._onCodeReceived);
+      }
+
+
+
     handleChange(value) {
+        let currentAlgos = this.state.algorithms;
        this.setState({
-          value: value
+          value: value,
+          algorithms: currentAlgos
         });
     }
 
     render() {
-        var jscode = `
-module.exports = {
 
-  evaluateIsItAScam: function (currentPrice, previousPrice) {
-    return currentPrice <  previousPrice;
-  }
-};
-        `;
-        var javacode = `
-public class IsItAScam {
-    public boolean evaluateIsItAScam(double currentPrice, double previousPrice) {
-        return currentPrice <  previousPrice;
-    }
-}
-        `;
-        var phpcode = `
-<?php
-function evaluate_is_it_a_scam($currentPrice, $previousPrice)
-{
-    return currentPrice < previousPrice;
-}
-?>
-        `;
+
+
+        var indents = [];
+        for (var i = 0; i < this.state.algorithms.length; i++) {
+          indents.push(<Tab key={i} label={this.state.algorithms[i].name} value={i}><AlgoCode codetitle={this.state.algorithms[i].name} codetype={this.state.algorithms[i].type} codetext={this.state.algorithms[i].codelines.join('\n')}/></Tab>);
+        }
+
 
         return (
             <Paper style={paperstyle} zDepth={3} rounded={false}>
@@ -124,21 +126,8 @@ function evaluate_is_it_a_scam($currentPrice, $previousPrice)
                             value={this.state.value}
                             onChange={this.handleChange}
                           >
-                            <Tab label="JS" value="a">
-                                <AlgoCode codetitle="Javascipt" codetype="javascript" codetext={jscode}/>
-                            </Tab>
-                            <Tab label="Java" value="b">
-                                <AlgoCode codetitle="Java" codetype="javascript" codetext={javacode}/>
-                            </Tab>
-                            <Tab label="Php" value="c">
-                                <AlgoCode codetitle="Php" codetype="php" codetext={phpcode}/>
-                            </Tab>
+                            {indents}
                           </Tabs>
-
-
-
-
-
                 </div>
                 <div style={fstyle}>
                     <span style={ftext}>Crypto Answers</span>
@@ -146,4 +135,19 @@ function evaluate_is_it_a_scam($currentPrice, $previousPrice)
             </Paper>
         );
     }
+
+      sync () {
+        AlgoServiceActions.fetchAlgorithms();
+      }
+
+      _onCodeReceived () {
+
+            this.setState(
+                {
+                    value: this.state.value,
+                    algorithms: AlgoServiceStore.getState().codeAlgorithms
+                }
+            );
+      }
+
 }

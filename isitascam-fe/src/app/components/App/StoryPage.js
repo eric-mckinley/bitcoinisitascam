@@ -97,7 +97,7 @@ Quod erat demonstrandum
                 <Paper style={paperstyle} zDepth={3} rounded={false}>
                     <div style={hstyle}>
                         <HeaderIcon style={iconstyle} />
-                        <span style={htext}>Murder, suicide and a lost thesis</span>
+                        <ContentData pageName="story" blockName="title" spanTag={true} /
                     </div>
                     <div style={bstyle}>
                         <ContentData pageName="story" blockName="section1"/>

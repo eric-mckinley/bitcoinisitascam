@@ -8,9 +8,10 @@ var ContentServiceStore = require('../../../store/ContentServiceStore');
 export default class ContentData extends React.Component {
     constructor(props) {
         super(props);
-        this._onContentReceived = this._onContentReceived.bind(this)
+        this._onContentReceived = this._onContentReceived.bind(this);
+
          this.state = {
-            htmlContent: "Loading ...."
+            htmlContent: this.props.loadingText ? this.props.loadingText : "Loading ...."
         };
     }
 
@@ -24,10 +25,12 @@ export default class ContentData extends React.Component {
   }
 
     render() {
-
-        return (
-            <div dangerouslySetInnerHTML={{__html: this.state.htmlContent}} />
-        );
+        if (this.props.spanTag) {
+            return (<span dangerouslySetInnerHTML={{__html: this.state.htmlContent}} />);
+        }
+        else{
+            return (<div dangerouslySetInnerHTML={{__html: this.state.htmlContent}} />);
+        }
     }
 
       syncContent () {
