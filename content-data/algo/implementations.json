@@ -55,7 +55,7 @@
 
             "\t\tIF  (curr .LT. prev) THEN",
             "\t\t\tEvaluateIsItScam = .TRUE.",
-            "\t\tELSE
+            "\t\tELSE",
             "\t\t\tEvaluateIsItScam = .FALSE.",
             "\t\tEND IF",
             "\tEND FUNCTION  EvaluateIsItScam",       
