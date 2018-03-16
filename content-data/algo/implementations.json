@@ -44,7 +44,7 @@
             "\tREAD(*,*) currentPrice, previousPrice",
             "\tSCAM = EvaluateIsItScam(currentPrice, previousPrice)",
             "\tIF (SCAM) THEN",
-            "\t\tprint *, 'It is a scam'
+            "\t\tprint *, 'It is a scam'",
             "\tELSE",
             "\t\tprint *, 'It is not a scam'",
             "\tEND IF",
