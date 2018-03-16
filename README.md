@@ -4,7 +4,7 @@ bitcoinisitascam
 ReactJs + NodeJs App built as docker containers and deployed as Kubernetes service
 
 
-www.bitcoinisitascam.com/api/v1/crypto-status/btc --> docker-be
+www.bitcoinisitascam.com/api/v1/crypto-status/bitcoin --> docker-be
 
 www.bitcoinisitascam.com/docs/ --> docker-swagger
 
