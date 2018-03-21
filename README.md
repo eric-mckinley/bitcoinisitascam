@@ -9,7 +9,7 @@ ReactJs + NodeJs App built as docker containers and deployed as Kubernetes servi
 
 - www.bitcoinisitascam.com/docs/ : Swaggui Container
 
-www.bitcoinisitascam.com/api-docs/swagger.yaml : Nginx Container
+- www.bitcoinisitascam.com/api-docs/swagger.yaml : Nginx Container
  
-www.bitcoinisitascam.com/ : ReactJS on Node Container
+- www.bitcoinisitascam.com/ : ReactJS on Node Container
  
