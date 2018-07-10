@@ -32,5 +32,35 @@
             "}",
             "?>"
         ]
+    },
+    {
+        "name": "Fortran",
+        "type": "fortran",
+        "codelines": [
+            "PROGRAM IsItAScam",
+            "\tIMPLICIT NONE",
+            "\tLOGICAL :: SCAM",
+            "\tREAL :: currentPrice, previousPrice",
+            "\tREAD(*,*) currentPrice, previousPrice",
+            "\tSCAM = EvaluateIsItScam(currentPrice, previousPrice)",
+            "\tIF (SCAM) THEN",
+            "\t\tprint *, 'It is a scam'",
+            "\tELSE",
+            "\t\tprint *, 'It is not a scam'",
+            "\tEND IF",
+            "\tCONTAINS",
+            "\t\tLOGICAL FUNCTION EvaluateIsItScam(curr,prev)",
+            "\t\tIMPLICIT NONE",
+            "\t\tREAL, INTENT(IN) :: curr,prev",
+
+            "\t\tIF  (curr .LT. prev) THEN",
+            "\t\t\tEvaluateIsItScam = .TRUE.",
+            "\t\tELSE",
+            "\t\t\tEvaluateIsItScam = .FALSE.",
+            "\t\tEND IF",
+            "\tEND FUNCTION  EvaluateIsItScam",       
+            "END PROGRAM IsItAScam"        
+        
+        ]
     }
 ]
