@@ -1,3 +1,6 @@
 <p>
-    Each above service built as containerized isolated docker images and deployed as single node kubernetes cluster on Google Cloud Projet
+    Each above service built as containerized isolated docker images and deployed as single node kubernetes cluster.
+    <br/>
+    Initially ran on Google Cloud Project, but with free credit running low now deployed to Azure.
 </p>
+
