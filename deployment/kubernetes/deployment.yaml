@@ -16,13 +16,13 @@ spec:
       containers:
         - name: backend
           imagePullPolicy: IfNotPresent
-          image: "bitcoinisitascam/be"
+          image: "ericmckinley/bitcoinisitascam_backend:v1"
           ports:
             - name: http
               containerPort: 3200
         - name: frontend
           imagePullPolicy: IfNotPresent
-          image: "bitcoinisitascam/fe"
+          image: "ericmckinley/bitcoinisitascam_frontend:v3"
           ports:
             - name: http
               containerPort: 3000
@@ -33,7 +33,7 @@ spec:
             value: "http://bitcoinisitascam.com/docs/"
         - name: web
           imagePullPolicy: IfNotPresent
-          image: "bitcoinisitascam/web"
+          image: "ericmckinley/bitcoinisitascam_webserver:v2"
           ports:
             - name: http
               containerPort: 80
