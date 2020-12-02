@@ -2,6 +2,8 @@
 
 Try out code and tech running www.bitcoinisitascam.com
 
+> Note: After a glorious 12 months, I didnt renew the domain.
+
 ReactJs + NodeJs App built as docker containers and deployed as Kubernetes service
 
 
